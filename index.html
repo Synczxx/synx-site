@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SynX – Official</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0e0f0a;
+      --accent: #7cf5b4;
+      --muted: #6b6f63;
+      --highlight: #d9ffe9;
+      --card: #161812;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #151a12, var(--bg));
+      color: var(--highlight);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    body.light {
+      --bg: #f4fff8;
+      --card: #ffffff;
+      --highlight: #0e0f0a;
+      --muted: #4a4f45;
+      background: #f4fff8;
+      color: #0e0f0a;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-family: 'VT323', monospace;
+      font-size: clamp(3rem, 8vw, 6rem);
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-shadow: 0 0 15px rgba(124, 255, 154, 0.4);
+    }
+
+    header p {
+      max-width: 520px;
+      margin: 1.5rem auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 6rem 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      font-family: 'VT323', monospace;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 14px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) rotate(-0.5deg);
+      box-shadow: 0 25px 60px rgba(124,245,180,0.25);
+    }
+
+    .cassette {
+      position: absolute;
+      top: -60px;
+      right: -40px;
+      width: 180px;
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .links a {
+      padding: 0.8rem 1.4rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: var(--accent);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      background: var(--accent);
+      color: #0e0f0a;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(124,245,180,0.35);
+    }
+
+    footer {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      background: var(--card);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .vinyl {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      margin-left: -250px;
+      margin-top: -250px;
+      background: radial-gradient(circle, #111 0%, #000 60%);
+      border-radius: 50%;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="toggle" onclick="toggleMode()">night</button>
+  <div class="vinyl" id="vinyl"></div>
+
+  <header>
+    <div>
+      <h1>SynX</h1>
+      <p>
+        Artist. Producer. Mixing & mastering. Aspiring to be one of the best artists coming out of Montgomery, Alabama.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <h2>Music</h2>
+    <div class="music-grid">
+      <div class="card">
+        <img class="cassette" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Compactcassette.svg">
+        <h3>Latest Release</h3>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0QkYbv1DP6sL9UqO5kakjZ" width="100%" height="152" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Vibe</h2>
+    <p style="max-width:650px;color:var(--muted);">
+      Inspired by the musical styles and rhythms of jazz, soul, R&B, and hip-hop.
+    </p>
+  </section>
+
+  <section>
+    <h2>Find Me</h2>
+    <div class="links">
+      <a href="https://www.instagram.com/darealsynx/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@darealsynx" target="_blank">TikTok</a>
+      <a href="https://open.spotify.com/artist/0QkYbv1DP6sL9UqO5kakjZ" target="_blank">Spotify</a>
+      <a href="https://music.apple.com/us/artist/synx/1757744661" target="_blank">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UCcpjatCJyyG4bcCS2gR8zYg" target="_blank">YouTube</a>
+      <a href="https://audiomack.com/darealsynx" target="_blank">Audiomack</a>
+    </div>
+  </section>
+
+  <footer>
+    © SynX — independent & unbothered
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+      const btn = document.querySelector('.toggle');
+      btn.textContent = document.body.classList.contains('light') ? 'morning' : 'night';
+    }
+
+    window.addEventListener('scroll', () => {
+      const vinyl = document.getElementById('vinyl');
+      vinyl.style.transform = 'rotate(' + window.scrollY / 5 + 'deg)';
+    });
+  </script>
+</body>
+</html>
