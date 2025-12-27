@@ -45,6 +45,10 @@
       --muted: #6b6f63;
       --highlight: #d9ffe9;
       --card: #161812;
+
+      /* glow */
+      --glow: 0 0 10px rgba(124,245,180,.22), 0 0 28px rgba(124,245,180,.18);
+      --glow-strong: 0 0 12px rgba(124,245,180,.35), 0 0 40px rgba(124,245,180,.25);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -77,6 +81,7 @@
       border-radius:999px;
       cursor:pointer;
       z-index:10;
+      transition: .25s ease;
     }
 
     header {
@@ -131,18 +136,21 @@
       display:grid;
       grid-template-columns:2fr 1fr;
       gap:2rem;
+      align-items:start;
     }
 
     .card {
       background:var(--card);
       padding:1.5rem;
       border-radius:14px;
+      transition: .25s ease;
     }
 
     img {
       width:100%;
       border-radius:14px;
       object-fit:cover;
+      transition:.25s ease;
     }
 
     .story-img {
@@ -163,6 +171,10 @@
       border-radius:999px;
       color:var(--accent);
       text-decoration:none;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
     }
 
     footer {
@@ -204,6 +216,81 @@
       transform:translate(-50%,-50%);
     }
 
+    /* ========= GLOW HOVERS (matches vibe) ========= */
+    .toggle:hover,
+    .links a:hover,
+    .card:hover,
+    a.latest-release:hover,
+    a.latest-release:hover img,
+    .music-grid img:hover,
+    a:hover {
+      box-shadow: var(--glow);
+      border-color: rgba(124,245,180,.65);
+      transform: translateY(-2px);
+    }
+
+    .links a:hover {
+      box-shadow: var(--glow-strong);
+    }
+
+    .latest-release {
+      display:flex;
+      gap:1.2rem;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+      border:1px solid rgba(124,245,180,.25);
+      border-radius:14px;
+      padding:1rem;
+      transition:.25s ease;
+    }
+
+    .latest-release img {
+      width:84px;
+      height:84px;
+      border-radius:12px;
+      object-fit:cover;
+      flex:0 0 auto;
+      box-shadow:none;
+      transform:none;
+    }
+
+    .latest-release .meta {
+      display:flex;
+      flex-direction:column;
+      gap:.35rem;
+      min-width:0;
+    }
+
+    .latest-release .tag {
+      font-family:'VT323', monospace;
+      color:var(--accent);
+      letter-spacing:.6px;
+      font-size:1.25rem;
+      line-height:1;
+    }
+
+    .latest-release .title {
+      font-weight:600;
+      color:var(--highlight);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .latest-release .sub {
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.35;
+    }
+
+    /* About text formatting */
+    .about-text {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 900px;
+    }
+
     @media(max-width:768px){
       .music-grid{grid-template-columns:1fr;}
       .vinyl{width:360px;height:360px;margin:-180px;}
@@ -227,13 +314,44 @@
   <h2>Music</h2>
   <div class="music-grid">
     <div class="card">
+      <!-- Spotify player (unchanged) -->
       <iframe loading="lazy" style="border-radius:12px" src="https://open.spotify.com/embed/artist/0QkYbv1DP6sL9UqO5kakjZ" width="100%" height="152"></iframe>
+
+      <!-- Latest Release (Apple Music) -->
+      <div style="height:14px"></div>
+
+      <a class="latest-release" target="_blank"
+         href="https://music.apple.com/us/album/i-cant-switch-single/1813821094">
+        <!-- Upload your cover as images/latest-release.jpg -->
+        <img src="images/latest-release.jpg" alt="SynX latest release cover">
+        <div class="meta">
+          <div class="tag">Latest Release</div>
+          <div class="title">I Can’t Switch</div>
+          <div class="sub">Tap the cover — straight to Apple Music.</div>
+        </div>
+      </a>
     </div>
+
+    <!-- kept exactly as you requested -->
     <img src="images/me-smopking.jpg" alt="SynX artistic portrait">
   </div>
 </section>
 
 <img class="story-img reveal" src="images/me-as-kid.jpg" alt="SynX childhood music roots">
+
+<!-- ABOUT ME SECTION (updated, 3rd person, cooler, not cliché) -->
+<section class="reveal">
+  <h2>About</h2>
+  <div class="card">
+    <p class="about-text">
+      Hailing from the south of Montgomery, Alabama, SynX was born on August 29 and raised with music and pain intertwined. Introduced to music as a family tradition, his foundation began with piano and saxophone, though percussion always pulled him in first. By elementary school he had nearly played every instrument available, earning multiple awards in middle school—talent he didn’t yet understand the weight of.
+      <br><br>
+      Growing up, Michael Jackson was always in rotation, a connection that felt personal long before SynX understood why they shared the same birthday. Kanye West shaped his sense of creativity and structure, while Tyler, The Creator was a constant presence through his sister’s music—an influence he didn’t fully embrace until later, when its depth started to hit differently.
+      <br><br>
+      In high school, SynX finally stepped fully into percussion, primarily on bass drum while also working quads, cymbals, and snare. Outside the band room, he was freestyling almost daily and had already begun experimenting with music creation on GarageBand back in middle school. What started as simple ideas slowly turned serious, and once the switch flipped, he never stopped—music became more than a skill; it became his true passion.
+    </p>
+  </div>
+</section>
 
 <section class="reveal">
   <h2>Watch Now</h2>
@@ -281,5 +399,3 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 </body>
 </html>
-
-
