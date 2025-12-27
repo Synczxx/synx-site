@@ -3,9 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SynX – Official</title>
+
+  <title>SynX – Official Artist Site</title>
+
+  <link rel="canonical" href="https://YOUR-GITHUB-PAGES-URL/" />
+
+  <meta name="description" content="SynX is an independent artist, producer, and mixing & mastering engineer from Montgomery, Alabama. Inspired by jazz, soul, R&B, and hip-hop.">
+  <meta name="keywords" content="SynX artist, Montgomery Alabama artist, R&B artist Alabama, hip hop artist SynX">
+
+  <meta property="og:title" content="SynX – Official Artist Site">
+  <meta property="og:description" content="Independent artist & producer from Montgomery, Alabama.">
+  <meta property="og:type" content="website">
 
   <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Artist Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "SynX",
+    "genre": ["Hip-Hop", "R&B", "Soul", "Jazz"],
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Montgomery, Alabama"
+    },
+    "sameAs": [
+      "https://www.instagram.com/darealsynx/",
+      "https://www.tiktok.com/@darealsynx",
+      "https://open.spotify.com/artist/0QkYbv1DP6sL9UqO5kakjZ",
+      "https://music.apple.com/us/artist/synx/1757744661",
+      "https://www.youtube.com/channel/UCcpjatCJyyG4bcCS2gR8zYg"
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -16,218 +47,237 @@
       --card: #161812;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       background: radial-gradient(circle at top, #151a12, var(--bg));
       color: var(--highlight);
       font-family: 'Inter', sans-serif;
-      line-height: 1.6;
       overflow-x: hidden;
-      transition: background 0.6s ease, color 0.6s ease;
+      transition: 0.6s;
     }
 
     body.light {
-      --bg: #f4fff8;
-      --card: #ffffff;
-      --highlight: #0e0f0a;
-      --muted: #4a4f45;
-      background: #f4fff8;
-      color: #0e0f0a;
-    }
-
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    header h1 {
-      font-family: 'VT323', monospace;
-      font-size: clamp(3rem, 8vw, 6rem);
-      letter-spacing: 3px;
-      color: var(--accent);
-      text-shadow: 0 0 15px rgba(124, 255, 154, 0.4);
-    }
-
-    header p {
-      max-width: 520px;
-      margin: 1.5rem auto;
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-
-    section {
-      padding: 6rem 1.5rem;
-      max-width: 1100px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    h2 {
-      font-family: 'VT323', monospace;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: var(--accent);
-    }
-
-    .music-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 14px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .card:hover {
-      transform: translateY(-8px) rotate(-0.5deg);
-      box-shadow: 0 25px 60px rgba(124,245,180,0.25);
-    }
-
-    .cassette {
-      position: absolute;
-      top: -60px;
-      right: -40px;
-      width: 180px;
-      opacity: 0.25;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .links a {
-      padding: 0.8rem 1.4rem;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      font-size: 0.9rem;
-      color: var(--accent);
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .links a:hover {
-      background: var(--accent);
-      color: #0e0f0a;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(124,245,180,0.35);
-    }
-
-    footer {
-      padding: 3rem 1.5rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--muted);
+      --bg:#f4fff8;
+      --card:#fff;
+      --highlight:#0e0f0a;
+      --muted:#4a4f45;
+      background:#f4fff8;
+      color:#0e0f0a;
     }
 
     .toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-      background: var(--card);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
+      position:fixed;
+      top:20px;
+      right:20px;
+      background:var(--card);
+      border:1px solid var(--accent);
+      color:var(--accent);
+      padding:.6rem 1rem;
+      border-radius:999px;
+      cursor:pointer;
+      z-index:10;
+    }
+
+    header {
+      min-height:90vh;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.9)),
+        url("images/graffiti.jpg") center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:2rem;
+    }
+
+    header h1 {
+      font-family:'VT323', monospace;
+      font-size:clamp(3rem,8vw,6rem);
+      color:var(--accent);
+    }
+
+    header p {
+      max-width:520px;
+      margin:1.2rem auto;
+      color:var(--muted);
+    }
+
+    section {
+      max-width:1100px;
+      margin:auto;
+      padding:3rem 1.5rem;
+    }
+
+    h2 {
+      font-family:'VT323', monospace;
+      color:var(--accent);
+      font-size:2.3rem;
+      margin-bottom:1.2rem;
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(40px);
+      transition:.8s ease;
+    }
+
+    .reveal.active {
+      opacity:1;
+      transform:none;
+    }
+
+    .music-grid {
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:2rem;
+    }
+
+    .card {
+      background:var(--card);
+      padding:1.5rem;
+      border-radius:14px;
+    }
+
+    img {
+      width:100%;
+      border-radius:14px;
+      object-fit:cover;
+    }
+
+    .story-img {
+      margin:3rem auto;
+      max-width:700px;
+      display:block;
+    }
+
+    .links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
+    }
+
+    .links a {
+      border:1px solid var(--accent);
+      padding:.7rem 1.3rem;
+      border-radius:999px;
+      color:var(--accent);
+      text-decoration:none;
+    }
+
+    footer {
+      text-align:center;
+      padding:2rem;
+      color:var(--muted);
     }
 
     .vinyl {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 500px;
-      height: 500px;
-      margin-left: -250px;
-      margin-top: -250px;
-      background: radial-gradient(circle, #111 0%, #000 60%);
-      border-radius: 50%;
-      opacity: 0.08;
-      z-index: 0;
-      pointer-events: none;
+      position:fixed;
+      top:50%;
+      left:50%;
+      width:500px;
+      height:500px;
+      margin:-250px;
+      background:radial-gradient(circle,#111 0%,#000 60%);
+      border-radius:50%;
+      opacity:.18;
+      pointer-events:none;
+    }
+
+    .vinyl::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:repeating-radial-gradient(circle,rgba(255,255,255,.05) 0px,transparent 4px);
+      border-radius:50%;
+    }
+
+    .vinyl::after {
+      content:"";
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:90px;
+      height:90px;
+      background:radial-gradient(circle,var(--accent),#0e0f0a);
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+    }
+
+    @media(max-width:768px){
+      .music-grid{grid-template-columns:1fr;}
+      .vinyl{width:360px;height:360px;margin:-180px;}
     }
   </style>
 </head>
 
 <body>
-  <button class="toggle" onclick="toggleMode()">night</button>
-  <div class="vinyl" id="vinyl"></div>
 
-  <header>
-    <div>
-      <h1>SynX</h1>
-      <p>
-        Artist. Producer. Mixing & mastering. Aspiring to be one of the best artists coming out of Montgomery, Alabama.
-      </p>
+<button class="toggle" onclick="toggleMode()">night</button>
+<div class="vinyl" id="vinyl"></div>
+
+<header>
+  <div class="reveal">
+    <h1>SynX</h1>
+    <p>Artist. Producer. Mixing & mastering. Aspiring to be one of the best artists coming out of Montgomery, Alabama.</p>
+  </div>
+</header>
+
+<section class="reveal">
+  <h2>Music</h2>
+  <div class="music-grid">
+    <div class="card">
+      <iframe loading="lazy" style="border-radius:12px" src="https://open.spotify.com/embed/artist/0QkYbv1DP6sL9UqO5kakjZ" width="100%" height="152"></iframe>
     </div>
-  </header>
+    <img src="images/smoking.jpg" alt="SynX artistic portrait">
+  </div>
+</section>
 
-  <section>
-    <h2>Music</h2>
-    <div class="music-grid">
-      <div class="card">
-        <img class="cassette" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Compactcassette.svg">
-        <h3>Latest Release</h3>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0QkYbv1DP6sL9UqO5kakjZ" width="100%" height="152" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
+<img class="story-img reveal" src="images/kid.jpg" alt="SynX childhood music roots">
 
-  <section>
-    <h2>Vibe</h2>
-    <p style="max-width:650px;color:var(--muted);">
-      Inspired by the musical styles and rhythms of jazz, soul, R&B, and hip-hop.
-    </p>
-  </section>
+<section class="reveal">
+  <h2>Watch Now</h2>
+  <div class="card">
+    <iframe loading="lazy" width="100%" height="315" src="https://www.youtube.com/embed/u4s5wJ8NTB4" allowfullscreen></iframe>
+  </div>
+</section>
 
-  <section>
-    <h2>Find Me</h2>
-    <div class="links">
-      <a href="https://www.instagram.com/darealsynx/" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@darealsynx" target="_blank">TikTok</a>
-      <a href="https://open.spotify.com/artist/0QkYbv1DP6sL9UqO5kakjZ" target="_blank">Spotify</a>
-      <a href="https://music.apple.com/us/artist/synx/1757744661" target="_blank">Apple Music</a>
-      <a href="https://www.youtube.com/channel/UCcpjatCJyyG4bcCS2gR8zYg" target="_blank">YouTube</a>
-      <a href="https://audiomack.com/darealsynx" target="_blank">Audiomack</a>
-    </div>
-  </section>
+<section class="reveal">
+  <h2>Contact</h2>
+  <p><a href="mailto:etsynczxx@gmail.com" style="color:var(--accent)">etsynczxx@gmail.com</a></p>
+</section>
 
-  <footer>
-    © SynX — independent & unbothered
-  </footer>
+<section class="reveal">
+  <h2>Find Me</h2>
+  <div class="links">
+    <a href="https://www.instagram.com/darealsynx/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@darealsynx" target="_blank">TikTok</a>
+    <a href="https://open.spotify.com/artist/0QkYbv1DP6sL9UqO5kakjZ" target="_blank">Spotify</a>
+    <a href="https://music.apple.com/us/artist/synx/1757744661" target="_blank">Apple Music</a>
+    <a href="https://www.youtube.com/channel/UCcpjatCJyyG4bcCS2gR8zYg" target="_blank">YouTube</a>
+  </div>
+</section>
 
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('light');
-      const btn = document.querySelector('.toggle');
-      btn.textContent = document.body.classList.contains('light') ? 'morning' : 'night';
-    }
+<footer>© SynX — independent & unbothered</footer>
 
-    window.addEventListener('scroll', () => {
-      const vinyl = document.getElementById('vinyl');
-      vinyl.style.transform = 'rotate(' + window.scrollY / 5 + 'deg)';
-    });
-  </script>
+<script>
+function toggleMode(){
+  document.body.classList.toggle('light');
+  document.querySelector('.toggle').textContent =
+    document.body.classList.contains('light') ? 'morning' : 'night';
+}
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('vinyl').style.transform =
+    'rotate(' + window.scrollY/2 + 'deg)';
+});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting)e.target.classList.add('active'); });
+},{threshold:.15});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
 </body>
 </html>
